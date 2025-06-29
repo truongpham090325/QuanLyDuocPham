@@ -1,0 +1,60 @@
+﻿<Window x:Class="OnTapCuoiKy_De1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnTapCuoiKy_De1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Arial"></Setter>
+            <Setter Property="Foreground" Value="Blue"></Setter>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Blue"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+        </Style>
+        <Style TargetType="DataGridCell" x:Key="thanhtien">
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+            <Setter Property="FontStyle" Value="Italic"></Setter>
+            <Setter Property="Foreground" Value="DarkRed"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Label Content="QUẢN LÝ DƯỢC PHẨM" FontSize="30" HorizontalAlignment="Center" Margin="0 20 0 0"></Label>
+        <Label Content="Mã thuốc" FontSize="18" Margin="50 100"></Label>
+        <Label Content="Tên thuốc" FontSize="18" Margin="50 140"></Label>
+        <Label Content="Giá bán" FontSize="18" Margin="50 180"></Label>
+        <Label Content="Số lượng" FontSize="18" Margin="50 220"></Label>
+        <Label Content="Danh mục thuốc" FontSize="18" Margin="50 260"></Label>
+        <TextBox Name="txtMaThuoc" Width="350" Height="30" Margin="20 105 0 0" VerticalAlignment="Top"></TextBox>
+        <TextBox Name="txtTenThuoc" Width="350" Height="30" Margin="20 145 0 0" VerticalAlignment="Top"></TextBox>
+        <TextBox Name="txtGiaBan" Width="350" Height="30" Margin="20 190 0 0" VerticalAlignment="Top"></TextBox>
+        <TextBox Name="txtSoLuong" Width="350" Height="30" Margin="20 230 0 0" VerticalAlignment="Top"></TextBox>
+        <ComboBox Name="cboDMThuoc" Width="350" Height="30" Margin="20 270 0 0" VerticalAlignment="Top"></ComboBox>
+        <DataGrid Name="dgvThuoc" Width="760" Height="200" Margin="0 240 0 0" AutoGenerateColumns="False" CanUserAddRows="False" SelectedCellsChanged="dgvThuoc_SelectedCellsChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã thuốc" Width="100" Binding="{Binding MaThuoc}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Tên thuốc" Width="120" Binding="{Binding TenThuoc}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Danh mục thuốc" Width="100" Binding="{Binding MaDm}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Giá bán" Width="100" Binding="{Binding GiaBan}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Số lượng" Width="100" Binding="{Binding SoLuong}"></DataGridTextColumn>
+                <DataGridTextColumn CellStyle="{StaticResource thanhtien}" Header="Thành tiền" Width="*" Binding="{Binding ThanhTien, StringFormat=N0}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="btnThem" Content="Thêm" Width="80" Height="30" Margin="-300 500 0 0" Click="btnThem_Click"></Button>
+        <Button Name="btnSua" Content="Sửa" Width="80" Height="30" Margin="-100 500 0 0" Click="btnSua_Click"></Button>
+        <Button Name="btnXoa" Content="Xóa" Width="80" Height="30" Margin="100 500 0 0" Click="btnXoa_Click"></Button>
+        <Button Name="btnTim" Content="Tìm" Width="80" Height="30" Margin="300 500 0 0" Click="btnTim_Click"></Button>
+    </Grid>
+</Window>
