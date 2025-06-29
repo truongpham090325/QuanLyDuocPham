@@ -1,4 +1,5 @@
 --Cơ sở dữ liệu
+
 CREATE DATABASE QLDuocPham
 GO
 USE QLDuocPham
